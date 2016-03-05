@@ -66,12 +66,5 @@ class BaseAdminController < ApplicationController
     end
   end
 
-  private
-  # Update last seen for online users
-  def set_last_seen_at
-    current_user.update_attribute(:last_seen_at, Time.now)
-    session[:last_seen_at] = Time.now
-  end
-
 
 end

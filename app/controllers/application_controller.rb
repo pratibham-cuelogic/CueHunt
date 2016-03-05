@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
     return redirect_to thank_you_path if current_user.status == NO_ACCESS
   end
 
+  private
+  # Update last seen for online users
+  def set_last_seen_at
+    current_user.update_attribute(:last_seen_at, Time.now)
+    session[:last_seen_at] = Time.now
+  end
+
 end
