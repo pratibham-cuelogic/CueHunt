@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'reports', to: 'admin/reports#candidate_reports', as: 'candidate_report'
     get 'candidates', to:  'admin/users#candidates', as: 'candidates'
     get 'can_reports', to: 'admin/reports#index', as: 'reports'
-    get 'question_answers', to: 'admin/questions#index', as: 'questions'
+    get 'questions', to: 'admin/questions#index', as: 'questions'
   end
   get 'dashboard', to: 'user_dashboards#dashboard', as: 'user_dashboard'
   get 'start-test', to: 'user_dashboards#user_set', as: 'user_set'

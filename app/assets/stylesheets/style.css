@@ -204,6 +204,10 @@ tbody td:last-child, thead th:last-child {
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
     text-align: center;
 }
+
+/*.question-tabulate-view .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    text-align: left;
+}*/
 /**************/
  .right-panel .btn{
     margin: 24% 0% 0% 0;
@@ -241,9 +245,63 @@ tbody td:last-child, thead th:last-child {
  a.input-group-addon{
     text-decoration: none;
  }
+.question-view{
+    margin: 0% 5%;
+    min-height: 311px;
+    padding: 1%;
+    overflow: auto;
+}
+.tech-drop-box{
+    display: block;
+    margin:20px auto;
+    float: none;
+}
+.question-scroll thead{
+    font-weight: bold;
+}
+
+.report-section{
+    padding: 15px 0;
+    overflow: hidden;   
+}
+
+.report-panel-value{
+    width: 50%;
+    float: left;
+    padding: 20px 0 30px 0;
+
+}
+.report-panel-value label{
+    padding: 0;
+    width: 40%;
+    float: left;
+    font-size: 14px;
+}
+.report-panel-value label:first-child{
+    font-weight: 700;
+    color: #555;
+}
+.report-panel-value label:last-child{
+    margin-right: 30px;
+}
+.technology-filter{
+    margin: 0;
+}
+.report-filter label{
+    margin-bottom:10px; 
+    margin-top:10px; 
+}
+.filter-block{
+    margin-top:10px;
+    margin-bottom:20px; 
+}
+.filter-block-search{
+    margin-top:30px;
+}
+.question-scroll .table>tbody>tr>td{
+    text-align: left !important;
+}
 footer{
-    position: absolute;
-    bottom: 0;
     padding: 15px;
     background: #fff;
     left: 0;
@@ -251,6 +309,7 @@ footer{
     text-align: center;
     color: #1e88e5;
     font-size: 13px;
+    margin-top: 21px;
 }
 footer .copyright{
      text-decoration: none;
