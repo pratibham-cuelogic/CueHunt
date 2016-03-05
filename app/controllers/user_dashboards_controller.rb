@@ -1,6 +1,6 @@
 class UserDashboardsController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:thank_you]
 
   def index
     return redirect_to user_dashboard_path
