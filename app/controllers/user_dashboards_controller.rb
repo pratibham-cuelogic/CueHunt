@@ -23,10 +23,6 @@ class UserDashboardsController < ApplicationController
     render nothing: true
   end
 
-  def thank_you
-
-  end
-
   # Test time is over
   def timeis_up
     current_user.submit_answers

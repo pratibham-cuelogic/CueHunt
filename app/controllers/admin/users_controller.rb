@@ -6,8 +6,11 @@ class Admin::UsersController < BaseAdminController
     redirect_to :back
   end
 
+  # Resend invitation for online test
   def resend_invitation
-    User.resend_invitation_to_user(params, current_user)
+    user = User.where(email: params[:email]).last
+    return redirect_to :back if user.blank?
+    User.resend_invitation_to_user(user, current_user)
     redirect_to :back
   end
 
@@ -16,7 +19,6 @@ class Admin::UsersController < BaseAdminController
   end
 
   def candidates
-    #render text: params.inspect and return
     @candidates = User.of_type("candidate")
   end
 
