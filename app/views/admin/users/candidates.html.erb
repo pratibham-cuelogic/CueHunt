@@ -20,7 +20,7 @@
               <td> <%= candidate.full_name %> </td>
               <td> <%= candidate.email %> </td>
               <td> <%= candidate.phone_no %> </td>
-              <td> <%= UserSet.where(user_id: candidate.id).first.technology.name %> </td>
+              <td> <%= UserSet.where(user_id: candidate.id).first.try(:technology).try(:name) %> </td>
             </tr>
           <% end %>
           </tbody>
@@ -32,38 +32,48 @@
     <div class="col-md-4 right-panel">
       <button class="btn btn-lg btn-primary btn-block existing-candidate" type="submit">Existing Candidate</button>
       <div class="input-group exiting-email-input display-none">
-        <input type="text" class="form-control existing-user" placeholder="Email" required autofocus>
-        <a href="#" class="input-group-addon glyphicon glyphicon-log-in"></a>
+        <%= form_tag resend_invitation_path, class: 'form-signin' do %>
+          <%= text_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email ", required: true %>
+          <button  class="input-group-addon glyphicon glyphicon-log-in" type="submit"></>
+        <% end %>
       </div>
       <button class="btn btn-lg btn-primary new-user btn-block" type="submit">New Candidate Registration</button>
 
-
       <div class="new-candidate-registration display-none">
+        <h2>Sending Invite</h2>
         <%= form_tag send_invitation_to_candidate_path, class: 'form-signin' do %>
-            <%= email_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email", required: true %><br/>
-            <%= text_field 'full_name',nil, autofocus: true, class: "form-control", placeholder: "Name", required: true %><br/>
-            <%= text_field 'phone_no',nil, autofocus: true, class: "form-control", placeholder: "Contact Number", required: true %><br/>
-            <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| t.name t.id}), class: "form-control" %><br/>
-            <%= submit_tag 'Invite', class: "btn btn-lg btn-primary btn-block" %>
+            <!--<div class="form-group">-->
+              <%= email_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email", required: true %>
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <%= text_field 'full_name',nil, autofocus: true, class: "form-control", placeholder: "Name", required: true %>
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <%= text_field 'phone_no',nil, autofocus: true, class: "form-control", placeholder: "Contact Number", required: true %>
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}), class: "form-control" %>
+            <!--</div>-->
+            <%= submit_tag 'Invite', class: "btn btn-lg send-invite btn-primary btn-block" %>
         <% end %>
-        <h2>Candidate List</h2>
-        <div class="form-group">
-          <input type="email" class="form-control" id="input_email" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="input_username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="input_contact" placeholder="Contact">
-        </div>
-        <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <button class="btn btn-lg btn-primary send-invite btn-block" type="submit">Send Invitation</button>
+        <!--<h2>Candidate List</h2>-->
+        <!--<div class="form-group">-->
+          <!--<input type="email" class="form-control" id="input_email" placeholder="Email">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<input type="text" class="form-control" id="input_username" placeholder="Username">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<input type="text" class="form-control" id="input_contact" placeholder="Contact">-->
+        <!--</div>-->
+        <!--<select class="form-control">-->
+          <!--<option>1</option>-->
+          <!--<option>2</option>-->
+          <!--<option>3</option>-->
+          <!--<option>4</option>-->
+          <!--<option>5</option>-->
+        <!--</select>-->
+        <!--<button class="btn btn-lg btn-primary send-invite btn-block" type="submit">Send Invitation</button>-->
       </div>
     </div>
   </div>

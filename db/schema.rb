@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160305120927) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "score"
+    t.integer  "status",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

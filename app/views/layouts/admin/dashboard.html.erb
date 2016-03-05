@@ -23,7 +23,8 @@
         <header>
           <h1 class="text-left"><img class="profile-img" src="#" alt=""></h1><!--
                         <a href="#" id="sign_out_btn" class="text-right pull-right"><img class="profile-img" src="#" alt="Signout"></a> -->
-          <a href="#" id="sign_out_btn" class="text-right pull-right"><span class="glyphicon glyphicon-log-in"></span></a>
+          <%= link_to "<span class='glyphicon glyphicon-log-in'></span>".html_safe, destroy_user_session_path, method: 'delete',  class: "text-right pull-right" %>
+          # <a href="#" id="sign_out_btn" class="text-right pull-right"><span class="glyphicon glyphicon-log-in"></span></a>
         </header>
         <nav class="navbar navbar-default">
           <div class="container-fluid">
