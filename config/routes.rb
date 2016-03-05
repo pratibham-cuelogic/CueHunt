@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   end
   get 'dashboard', to: 'user_dashboards#dashboard', as: 'user_dashboard'
   get 'start-test', to: 'user_dashboards#user_set', as: 'user_set'
+  post '/update-answer', to: 'user_dashboards#update_answer'
 
 end
