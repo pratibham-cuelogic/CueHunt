@@ -1,6 +1,4 @@
-class HomesController < BaseController
-
-  before_action :authenticate_user!
+class HomesController < ApplicationController
 
   def index
 
