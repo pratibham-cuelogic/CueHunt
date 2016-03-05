@@ -5,7 +5,7 @@ class QuestionSet < ActiveRecord::Base
   # Create question sets
   def self.create_set(question_ids, user_set_id)
     question_ids.each {|question_id|
-      create(question_id, user_set_id: user_set_id)
+      create(question_id: question_id, user_set_id: user_set_id)
     }
   end
 

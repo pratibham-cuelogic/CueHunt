@@ -2,10 +2,11 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   belongs_to :role
+  has_many :user_sets
 
   # Send invitation to candidate to join test
   def self.send_invitation(params, invitee)
-    user = new(email: params['email'], full_name: params['full_name'], phone_no: params['phone_no'], password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
+    user = new(email: params['email'].first, full_name: params['full_name'].first, phone_no: params['phone_no'].first, password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
     if user.save
       user_set = UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
       if user_set.present?
