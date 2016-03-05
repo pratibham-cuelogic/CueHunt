@@ -1,17 +1,17 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  belongs_to :role
 
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  belongs_to :role
 
   # Send invitation to candidate to join test
   def self.send_invitation(params, invitee)
     user = new(email: params['email'], full_name: params['full_name'], phone_no: params['phone_no'], password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
     if user.save
-      UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
-      questions = Question.order("RANDOM()").where(technology_id: params[:technology_id]).limit(10)
+      user_set = UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
+      if user_set.present?
+        question_ids = Question.order("RANDOM()").where(technology_id: params[:technology_id]).limit(10).collect(&:id)
+        QuestionSet.create_set(question_ids, user_set.id)
+      end
     end
   end
 
@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
     where("last_seen_at >= ?", Time.now - 5.minutes)
   end
 
+  # Resend invitation
   def self.resend_invitation_to_user(params)
     user = where(id: params[:id]).last
     user.update_attributes(status: INVITED)
