@@ -14,9 +14,9 @@ function toggleChevron(e) {
 }
 
 $(document).ready(function(){
-
-    $('#datepicker1').datepicker();
-    $('#datepicker2').datepicker();
+    //
+    //$('#datepicker1').datepicker();
+    //$('#datepicker2').datepicker();
 
     $('#accordion').on('hidden.bs.collapse', toggleChevron);
     $('#accordion').on('shown.bs.collapse', toggleChevron);
@@ -45,21 +45,21 @@ $(document).ready(function(){
         $(".candidate").addClass('activate');
     })
 
-    $(".existing-candidate").click(function(){
+    $(".existing-candidate").on('click',function(){
         $(".input-group.exiting-email-input").toggleClass('display-block');
     });
-    $(".new-user").click(function(){
+    $(".new-user").on('click',function(){
         $(this).hide();
         $('.exiting-email-input').removeClass('display-block');
         $(".existing-candidate").hide();
         $(".new-candidate-registration").toggleClass('display-block')
     });
 
-    $(".send-invite").click(function(){
-        $(".existing-candidate").show();
-        $(".new-user").show();
-        $(".new-candidate-registration").removeClass('display-block');
-    });
+    //$(".send-invite").click(function(){
+    //    $(".existing-candidate").show();
+    //    $(".new-user").show();
+    //    $(".new-candidate-registration").removeClass('display-block');
+    //});
 
     
 

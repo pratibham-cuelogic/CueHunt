@@ -6,17 +6,16 @@
     <meta name="description" content="Cue Online Test">
     <meta name="keywords" content="Cuehunt,question,answer,onlinetest">
     <link rel="icon" href="image/cuehunt.png" type="image" sizes="16x16"> <!-- REMAINING -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="/assets/reset.css">-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Ubuntu' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="/assets/style.css">-->
     <!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
     <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">-->
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -35,10 +34,10 @@
                 <%= link_to 'Dashboard', admin_dashboard_path  %>
               </li>
               <li class="<%= params[:controller] == 'admin/reports' ? 'active' : '' %>" id="report_block">
-                <%= link_to 'Reports', reports_path  %>
+                <%= link_to 'Reports', candidate_report_path  %>
               </li>
               <li class="<%= params[:controller] == 'admin/questions' ? 'active' : '' %>" id="question_block">
-                <%= link_to 'Question Set', questions_path  %>
+                <%= link_to 'Question Set', questions_path %>
               </li>
               <li id="content_body" class="<%= params[:controller] == 'admin/users' ? 'active' : '' %>"> <%= link_to 'Candidates', candidates_path  %> </li>
             </ul>
