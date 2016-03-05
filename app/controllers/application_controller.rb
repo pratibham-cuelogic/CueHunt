@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   skip_before_filter :verify_authenticity_token
   before_action :authenticate_user!
   before_action :check_website_access, if: proc { user_signed_in?}
+  before_action :set_last_seen_at, if: proc { user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 5.minutes.ago) }
 
-
+  # Check site access for user
   def check_website_access
     return redirect_to thank_you_path if current_user.status == NO_ACCESS
   end

@@ -4,7 +4,6 @@ class BaseAdminController < ApplicationController
   #include Concerns::ExceptionHandler
   before_action :check_admin
   before_action :set_resource, only: [:delete,:update,:edit]
-  before_action :set_last_seen_at, if: proc { user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
   # Check if user is admin
   def check_admin

@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
 
   # Send invitation to candidate to join test
-  def self.send_invitation(email)
-    create(email: email.first, password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
+  def self.send_invitation(params)
+    create(email: params['email'], full_name: params['full_name'], phone_no: params['phone_no'], password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
   end
 
   # User role

@@ -2,7 +2,7 @@ class Admin::UsersController < BaseAdminController
 
   # Send invitation to user
   def send_invitation_to_candidate
-    User.send_invitation(params[:email])
+    User.send_invitation(params.first)
     redirect_to :back
   end
 
