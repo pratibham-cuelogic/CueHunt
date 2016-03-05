@@ -6,25 +6,29 @@
     <meta name="description" content="Cue Online Test">
     <meta name="keywords" content="Cuehunt,question,answer,onlinetest">
     <link rel="icon" href="image/cuehunt.png" type="image" sizes="16x16"> <!-- REMAINING -->
-    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="/assets/reset.css">-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Ubuntu' rel='stylesheet' type='text/css'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--<link rel="stylesheet" href="/assets/style.css">-->
-    <!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
-    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">-->
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="dashboard-container">
       <div class="dashboard-wall">
         <header>
-          <h1 class="text-left"><img class="profile-img" src="#" alt=""></h1><!--
-                        <a href="#" id="sign_out_btn" class="text-right pull-right"><img class="profile-img" src="#" alt="Signout"></a> -->
-          <%= link_to "<span class='glyphicon glyphicon-log-in'></span>".html_safe, destroy_user_session_path, method: 'delete',  class: "text-right pull-right" %>
+          <h1 class="text-left profile-img"></h1>
+          <!--<a href="#" id="sign_out_btn" class="text-right pull-right logout-img"></a>-->
+
+          <!--<h1 class="text-left"><img class="profile-img" src="#" alt=""></h1>&lt;!&ndash;-->
+           <!--<a href="#" id="sign_out_btn" class="text-right pull-right"><img class="profile-img" src="#" alt="Signout"></a> &ndash;&gt;-->
+          <%= link_to "", destroy_user_session_path, method: 'delete',  class: "text-right pull-right logout-img" %>
 
         </header>
         <nav class="navbar navbar-default">

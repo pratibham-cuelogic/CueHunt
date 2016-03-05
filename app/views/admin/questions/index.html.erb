@@ -3,14 +3,7 @@
 
   <div class="question-set">
     <div class="col-md-3 tech-drop-box">
-      <select class="form-control">
-        <option>-- Select Technology --</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}, selected: params[:tech_id]), :onchange => 'filter_questions(this)', include_blank: true, class: "form-control" %>
     </div>
     <div class="question-view" >
       <div class="question-tabulate-view">
@@ -36,3 +29,9 @@
 
   </div>
 </section>
+
+<script type="text/javascript">
+    function filter_questions(e){
+      window.location = "/admin/questions?tech_id="+ e.value
+    }
+</script>
