@@ -15,4 +15,9 @@ class Admin::UsersController < BaseAdminController
     @online_candidate = User.online_users
   end
 
+  def candidates
+    #render text: params.inspect and return
+    @candidates = User.of_type("candidate")
+  end
+
 end

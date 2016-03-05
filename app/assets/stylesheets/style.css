@@ -2,8 +2,10 @@ body{
     background: #1e88e5;
     font-family: 'Ubuntu', sans-serif;
 }
-
-/* Login */
+a{
+    text-decoration: none;
+}
+/* Login + Forgot Password + Change Password */
 .form-signin
 {
     max-width: 330px;
@@ -59,7 +61,6 @@ body{
 .account-wall header{
     background:#337ab7; 
     padding: 25px 0;
-
 }
 .login-title
 {
@@ -95,3 +96,163 @@ body{
     text-decoration: none;
 }
 /* Login End */
+
+
+/* Dashboard */
+.dashboard-container{
+    margin: 0;
+    padding: 0;
+}
+.dashboard-wall header,.dashboard-wall footer{
+    background: #fff;
+    padding: 15px 30px;
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+.dashboard-wall footer{
+    position: absolute;
+    bottom: 0;
+}
+.dashboard-wall header h1{
+    display: inline-block;
+}
+.dashboard-wall header .profile-img{
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    display: block;
+}
+.dashboard-wall .container-fluid{
+    padding: 0;
+}
+.dashboard-wall .navbar{
+    border:none;
+
+}
+.navbar-default .navbar-nav>li>a{
+    font-size: 17px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background: #1e88e5;
+    color: #fff;
+}
+.navbar-default .navbar-nav>li.active > a:hover{
+   background: #1e88e5;
+    color: #fff;
+}
+
+.dashboard, .candidate, .reports, .que-n-ans{
+    min-height: 450px;
+    margin: auto;
+    float: none;
+    margin: auto;
+    background: #fff;
+    padding: 0;
+    width: 97%;
+    display: none;
+}
+.activate{
+    display: block;
+}
+.activate h2{
+    padding: 18px 10px;
+    font-size: 16px;
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Dashboard Sections*/
+.candidate-list{
+    margin: 15px 0px;
+    border-radius: 10px;
+}
+/* table*/
+
+.left-panel h2, .right-panel h2{
+    background: #1e88e5;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+table.scroll thead,
+table.scroll tbody{ display:block; }
+
+table.scroll tbody {
+    height: 270px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody td {
+     width: 19%; 
+}
+thead th{
+    width: 164px;
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+.table>thead>tr>th{
+    border:none;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    text-align: center;
+}
+/**************/
+ .right-panel .btn{
+    margin: 24% 0% 0% 0;
+
+ }
+ .right-panel .send-invite{
+    margin: 5% 0% 5% 0;
+ }
+ .display-block{
+    display: block !important;
+ }
+.display-none{
+    display: none;
+ }
+ .new-candidate-registration{
+    margin: 15px 0;
+ }
+.new-candidate-registration .form-group{
+    margin: 26px 0;
+ }
+ 
+ .exiting-email-input{
+    margin: 7% 0;
+    padding: 0;
+ }
+ .exiting-email-input .input-group-addon{
+    background: none;
+    border: none;
+    font-size: 18px;
+    float: left;
+ }
+ .existing-user{
+    width: 90% !important;
+ }
+ a.input-group-addon{
+    text-decoration: none;
+ }
+footer{
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    background: #fff;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #1e88e5;
+    font-size: 13px;
+}
+footer .copyright{
+     text-decoration: none;
+    cursor: default;
+}
