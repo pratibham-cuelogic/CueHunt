@@ -4,4 +4,9 @@ class Admin::ReportsController < BaseAdminController
     @candidate_reports = UserSet.all
   end
 
+  def index
+    #render :nothing => true
+    redirect_to :back
+  end
+
 end
