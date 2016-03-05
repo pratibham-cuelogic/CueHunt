@@ -7,7 +7,7 @@
       </p>
       <p>
         <% qs.question.answers.each do |ans| %>
-          <%= radio_button_tag "answers_#{index}", "#{qs.id}-#{ans.id}", checked: false %>
+          <%= radio_button_tag "answers_#{index}", "#{qs.id}-#{qs.question.id}-#{ans.id}", checked: false %>
           <%= ans.description.html_safe %><br/>
         <% end %>
       </p>
@@ -19,23 +19,17 @@
 <script>
      $("#qs_0").show();
      function next_question(index){
-       if(index == 10){
-         window.close();
-         window.location.replace('/');
-       }
        $(".questions").hide();
        $("#qs_"+index).show();
        var rad_index = index - 1
-       var answer = document.getElementsByName("answers_"+rad_index)[0].value
+       var set = document.getElementsByName("answers_"+rad_index)[0].value
        $.ajax({
-         url: '/update-answer',
+         url: '/submit-answer',
          method: 'POST',
          beforeSend: function (xhr) {
              xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
          },
-         data: {answer: answer},
-         success: function (data) {
-         }
+         data: {set: set, question_number: index}
        })
 
      }
