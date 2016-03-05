@@ -1,7 +1,6 @@
 class BaseAdminController < ApplicationController
 
   layout 'admin/dashboard'
-  #include Concerns::ExceptionHandler
   before_action :check_admin
   before_action :set_resource, only: [:delete,:update,:edit]
 

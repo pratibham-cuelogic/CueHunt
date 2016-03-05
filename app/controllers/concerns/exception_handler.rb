@@ -5,13 +5,13 @@ module Concerns::ExceptionHandler
   end
 
   def handle_exception(e)
-    server_error(e)
-    return redirect_to '/alt_404'
+    #server_error(e)
+    return redirect_to '/404_error'
   end
 
   # Send Exception report email to admin
   def server_error(exception)
-    UserNotifier.exception_report(
+    AdminNotifier.exception_report(
         exception,
         exception.backtrace,
         session.instance_variable_get("@data"),
