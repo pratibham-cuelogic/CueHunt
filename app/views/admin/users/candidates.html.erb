@@ -63,6 +63,7 @@
             <!--<div class="form-group">-->
               <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}), class: "form-control" %>
             <!--</div>-->
+            <%= button_tag 'Back', class: "btn btn-lg back-invite btn-primary btn-block"%>
             <%= submit_tag 'Invite', class: "btn btn-lg send-invite btn-primary btn-block" %>
         <% end %>
         <!--<h2>Candidate List</h2>-->

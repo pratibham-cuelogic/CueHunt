@@ -78,6 +78,9 @@ a{
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+    background: url('image/logo.png');
+    width: 150px;
+    height: 200px;
 }
 .need-help
 {
@@ -119,11 +122,30 @@ a{
 .dashboard-wall header h1{
     display: inline-block;
 }
-.dashboard-wall header .profile-img{
-    width: 50px;
-    height: 50px;
+.profile-img{
     margin: 0px;
     display: block;
+    border-radius: 0;
+    background: url('/assets/logo.png');
+    width: 164px;
+    height: 51px;
+    background-size: 95%;
+    background-repeat: no-repeat;
+    border: none;
+}
+.logout-img{
+    display: block;
+    border-radius: 0;
+    background: url('/assets/logout.png');
+    width: 33px;
+    height: 36px;
+    background-size: 96%;
+    background-repeat: no-repeat;
+    border: none;
+    margin: 10px 0%;
+}
+.dashboard-wall header .logout-img{
+
 }
 .dashboard-wall .container-fluid{
     padding: 0;
@@ -189,7 +211,7 @@ table.scroll tbody {
 }
 
 tbody td {
-     width: 19%; 
+     width: 19%;
 }
 thead th{
     width: 164px;
@@ -228,7 +250,7 @@ tbody td:last-child, thead th:last-child {
 .new-candidate-registration .form-group{
     margin: 26px 0;
  }
- 
+
  .exiting-email-input{
     margin: 7% 0;
     padding: 0;
@@ -262,7 +284,7 @@ tbody td:last-child, thead th:last-child {
 
 .report-section{
     padding: 15px 0;
-    overflow: hidden;   
+    overflow: hidden;
 }
 
 .report-panel-value{
@@ -288,19 +310,33 @@ tbody td:last-child, thead th:last-child {
     margin: 0;
 }
 .report-filter label{
-    margin-bottom:10px; 
-    margin-top:10px; 
+    margin-bottom:10px;
+    margin-top:10px;
 }
 .filter-block{
     margin-top:10px;
-    margin-bottom:20px; 
+    margin-bottom:20px;
 }
 .filter-block-search{
     margin-top:30px;
 }
-.question-scroll .table>tbody>tr>td{
-    text-align: left !important;
+/*Dashboard*/
+.cuehunt-description{
+    padding: 5% 1%;
+    font-size: 18px;
+    color: #555;
+    margin: auto 0;
+    float: left;
+    border-right: 1px solid #000;
+    margin: 3%;
 }
+.ui-jqrangeslider{
+    display: none !important
+}
+.report-graph{
+    margin:2% 0% 0% -6%;
+}
+
 footer{
     padding: 15px;
     background: #fff;
@@ -314,4 +350,9 @@ footer{
 footer .copyright{
      text-decoration: none;
     cursor: default;
+}
+.back-invite, .send-invite {
+    width: 45% !important;
+    float: left;
+    margin:3% 2% 2% 3% !important;
 }
