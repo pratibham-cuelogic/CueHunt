@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
   end
 
   # Resend invitation
-  def self.resend_invitation_to_user(params)
-    user = where(id: params[:id]).last
-    user.update_attributes(status: INVITED)
-    AdminNotifier.resend_invitation_email(user.email)
+  def self.resend_invitation_to_user(params, invitee)
+    user = where(email: params[:email]).last
+    # user.update_attributes(status: INVITED)
+    # AdminNotifier.resend_invitation_email(user.email)
   end
 
 end

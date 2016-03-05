@@ -46,9 +46,9 @@ $(document).ready(function(){
         $(".new-candidate-registration").toggleClass('display-block')
     });
 
-    $(".send-invite").click(function(){
-        $(".existing-candidate").show();
-        $(".new-user").show();
-        $(".new-candidate-registration").removeClass('display-block');
-    })
+    //$(".send-invite").click(function(){
+    //    $(".existing-candidate").show();
+    //    $(".new-user").show();
+    //    $(".new-candidate-registration").removeClass('display-block');
+    //})
 })
