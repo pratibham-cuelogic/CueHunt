@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :technology
 
-  has_and_belongs_to_many :answers
+  has_many :question_answers
+  has_many :answers, :through => :question_answers
 end

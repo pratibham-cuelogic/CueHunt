@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160305112123) do
   add_index "question_sets", ["user_set_id"], name: "index_question_sets_on_user_set_id", using: :btree
 
   create_table "questions", force: true do |t|
-    t.string   "title"
+    t.text     "title"
     t.integer  "technology_id"
     t.datetime "created_at"
     t.datetime "updated_at"
