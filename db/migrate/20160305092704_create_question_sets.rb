@@ -4,7 +4,7 @@ class CreateQuestionSets < ActiveRecord::Migration
       t.references :user_set, index: true
       t.references :question, index: true
       t.references :answer, index: true
-      t.boolean :is_correct
+      t.boolean :is_correct, default: false
 
       t.timestamps
     end

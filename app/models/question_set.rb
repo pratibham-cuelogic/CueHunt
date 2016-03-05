@@ -10,4 +10,14 @@ class QuestionSet < ActiveRecord::Base
     }
   end
 
+  # Submit answer
+  def self.submit_question_answer(params)
+    extract_value = params[:set].split('-')
+    question_set_id = extract_value.first
+    question_id = extract_value.second
+    answer_id = extract_value.third
+    match = QuestionAnswer.compare_question_answer(question_id, answer_id)
+    QuestionSet.where(id: question_set_id).last.update_attributes(answer_id: answer_id, is_correct: match)
+  end
+
 end

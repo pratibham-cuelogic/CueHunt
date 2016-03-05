@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'user_dashboards#dashboard', as: 'user_dashboard'
   get 'start-test', to: 'user_dashboards#user_set', as: 'user_set'
   post '/update-answer', to: 'user_dashboards#update_answer'
+  post '/submit-answer', to: 'user_dashboards#submit_answer'
+  get '/ThankYou', to: 'user_dashboards#thank_you',as:'thank_you'
 
 end

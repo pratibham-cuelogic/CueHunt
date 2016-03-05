@@ -23,6 +23,23 @@ class User < ActiveRecord::Base
     role.role_type == 'admin'? true : false
   end
 
+  # Current set
+  def current_set
+    user_sets.last
+  end
+
+  # Submit all answers
+  def submit_answers
+    current_set.update_attributes(status: SET_FINISHED, score: score, end_time: Time.now)
+    update_attributes(status: NO_ACCESS)
+    AdminNotifier.send_admin_report(current_set)
+  end
+
+  # User last test score
+  def score
+    current_set.question_sets.select('id').where(is_correct: true).count
+  end
+
   # Get list of online candidates
   def self.online_users
     where("last_seen_at >= ?", Time.now - 5.minutes)
