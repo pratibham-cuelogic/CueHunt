@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post '/submit-answer', to: 'user_dashboards#submit_answer'
   post 'timeis-up', to: 'user_dashboards#timeis_up',as:'timeis_up'
   get '/ThankYou', to: 'user_dashboards#thank_you',as:'thank_you'
+  get '/404_error', to: 'static_pages#crash'
 
 end
