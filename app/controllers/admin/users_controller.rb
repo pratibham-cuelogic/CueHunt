@@ -6,4 +6,13 @@ class Admin::UsersController < BaseAdminController
     redirect_to :back
   end
 
+  def resend_invitation
+    User.resend_invitation_to_user(params)
+    redirect_to :back
+  end
+
+  def online_candidates
+    @online_candidate = User.online_users
+  end
+
 end

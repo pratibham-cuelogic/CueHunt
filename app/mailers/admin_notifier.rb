@@ -1,7 +1,7 @@
 class AdminNotifier < ActionMailer::Base
   default from: "from@example.com"
 
-  def send_invitation
+  def resend_invitation_email
 
   end
 

@@ -17,4 +17,15 @@ class User < ActiveRecord::Base
     role.role_type == 'admin'? true : false
   end
 
+  # Get list of online candidates
+  def self.online_users
+    where("last_seen_at >= ?", Time.now - 5.minutes)
+  end
+
+  def self.resend_invitation_to_user(params)
+    user = where(id: params[:id]).last
+    user.update_attributes(status: INVITED)
+    AdminNotifier.resend_invitation_email(user.email)
+  end
+
 end
