@@ -19,6 +19,10 @@
 <script>
      $("#qs_0").show();
      function next_question(index){
+       if(index == 10){
+         window.close();
+         window.location.replace('/');
+       }
        $(".questions").hide();
        $("#qs_"+index).show();
        var rad_index = index - 1
