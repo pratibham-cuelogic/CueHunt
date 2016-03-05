@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  scope :of_type, -> (type) { where(role_id: Role.find_by_role_type(type))}
   # User role
   def is_admin?
     return true if role.blank?
