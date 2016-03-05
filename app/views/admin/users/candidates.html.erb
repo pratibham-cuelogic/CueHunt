@@ -30,10 +30,19 @@
 
     <!-- Right Panel -->
     <div class="col-md-4 right-panel">
-      <button class="btn btn-lg btn-primary btn-block existing-candidate" type="submit">Existing Candidate</button>
+
+      <!--<button class="btn btn-lg btn-primary btn-block existing-candidate" type="submit">Existing Candidate</button>-->
+      <!--<div class="input-group exiting-email-input display-none">-->
+        <!--<input type="text" class="form-control existing-user" placeholder="Email" required autofocus>-->
+        <!--<a href="#" class="input-group-addon glyphicon glyphicon-log-in"></a>-->
+      <!--</div>-->
+      <!--<button class="btn btn-lg btn-primary new-user btn-block" type="submit">New Candidate Registration</button>-->
+
+
+      <button class="btn btn-lg btn-primary btn-block existing-candidate" id="exiti" type="submit">Existing Candidate</button>
       <div class="input-group exiting-email-input display-none">
         <%= form_tag resend_invitation_path, class: 'form-signin' do %>
-          <%= text_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email ", required: true %>
+          <%= text_field 'email',nil, autofocus: true, class: "form-control existing-user", placeholder: "Email ", required: true %>
           <button  class="input-group-addon glyphicon glyphicon-log-in" type="submit"></>
         <% end %>
       </div>
