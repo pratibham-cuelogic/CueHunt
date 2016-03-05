@@ -8,7 +8,7 @@ class AdminNotifier < ActionMailer::Base
   # Send report card
   def send_admin_report(current_set)
     @current_set = current_set
-    mail(to: 'jitendra.samant@cuelogic.co.in')
+    mail(to: 'jitendra.samant@cuelogic.co.in', subject: "Report for #{current_set.user.full_name}")
   end
 
 end

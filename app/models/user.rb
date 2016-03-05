@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   # Send invitation to candidate to join test
   def self.send_invitation(params, invitee)
-    user = new(email: params['email'].first, full_name: params['full_name'].first, phone_no: params['phone_no'].first, password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED)
+    role_id = Role.select('id').where(name: 'candidate').first.id rescue nil
+    user = new(email: params['email'].first, full_name: params['full_name'].first, phone_no: params['phone_no'].first, password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED, role_id: role_id)
     if user.save
       user_set = UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
       if user_set.present?
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   scope :of_type, -> (type) { where(role_id: Role.find_by_role_type(type))}
   # User role
   def is_admin?
-    return true if role.blank?
+    return false if role.blank?
     role.role_type == 'admin'? true : false
   end
 
@@ -32,7 +33,7 @@ class User < ActiveRecord::Base
   def submit_answers
     current_set.update_attributes(status: SET_FINISHED, score: score, end_time: Time.now)
     update_attributes(status: NO_ACCESS)
-    AdminNotifier.send_admin_report(current_set)
+    AdminNotifier.send_admin_report(current_set).deliver
   end
 
   # User last test score

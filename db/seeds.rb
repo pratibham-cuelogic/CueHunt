@@ -6,17 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Technology.destroy_all
-QuestionAnswer.destroy_all
-Question.destroy_all
-Answer.destroy_all
 ror_tech = Technology.create(name: "Ruby on Rails", reviewer_name: "Jitendra")
 php_tech = Technology.create(name: "PHP", reviewer_name: "Surya")
 ui_tech = Technology.create(name: "UI", reviewer_name: "Vanshaj")
 js_tech = Technology.create(name: "Javascript", reviewer_name: "Pratibha")
 dotnet_tech = Technology.create(name: ".Net", reviewer_name: "Naxane")
-Role.create(role_type: "admin")
-Role.create(role_type: "candidate")
+r1 = Role.create(role_type: "admin")
+r2 = Role.create(role_type: "candidate")
+User.create(email: 'cuehunt@gmail.com',password: '12345678',password_confirmation: '12345678', full_name: 'Cue Hunt', confirmed_at: Time.now, role_id: r2.id, status: ACTIVE)
 
 Technology.all.each do |tech|
   case tech.name
