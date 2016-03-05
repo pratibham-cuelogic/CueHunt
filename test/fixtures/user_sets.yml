@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  technology_id: 
+  invitee_id: 1
+  start_time: 2016-03-05 14:56:05
+  end_time: 2016-03-05 14:56:05
+  score: 1
+
+two:
+  user_id: 
+  technology_id: 
+  invitee_id: 1
+  start_time: 2016-03-05 14:56:05
+  end_time: 2016-03-05 14:56:05
+  score: 1
