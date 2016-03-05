@@ -14,4 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-config/database.yml
+
+# Ignore DB settings
+database.yml
+
+# Ignore rubymine settings
+.idea/
