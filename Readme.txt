@@ -1,1 +1,1 @@
-This is the temp repo for trial and error purpose.
+Repo for CueHunt : Cuelogic Hackathon.
