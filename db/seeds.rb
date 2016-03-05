@@ -13,7 +13,7 @@ js_tech = Technology.create(name: "Javascript", reviewer_name: "Pratibha")
 dotnet_tech = Technology.create(name: ".Net", reviewer_name: "Naxane")
 r1 = Role.create(role_type: "admin")
 r2 = Role.create(role_type: "candidate")
-User.create(email: 'cuehunt@gmail.com',password: '12345678',password_confirmation: '12345678', full_name: 'Cue Hunt', confirmed_at: Time.now, role_id: r2.id, status: ACTIVE)
+User.create(email: 'cuehunt@gmail.com',password: '12345678',password_confirmation: '12345678', full_name: 'Cue Hunt', confirmed_at: Time.now, role_id: r1.id, status: ACTIVE)
 
 Technology.all.each do |tech|
   case tech.name
