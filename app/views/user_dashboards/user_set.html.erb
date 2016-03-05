@@ -1,3 +1,4 @@
+<span id="s_timer"></span><br/>
 <%= form_tag "#",style: 'padding: 150px' do %>
 
   <% @question_sets.each_with_index do |qs,index| %>
@@ -16,22 +17,6 @@
   <% end %>
 <% end %>
 
-<script>
-     $("#qs_0").show();
-     function next_question(index){
-       $(".questions").hide();
-       $("#qs_"+index).show();
-       var rad_index = index - 1
-       var set = document.getElementsByName("answers_"+rad_index)[0].value
-       $.ajax({
-         url: '/submit-answer',
-         method: 'POST',
-         beforeSend: function (xhr) {
-             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-         },
-         data: {set: set, question_number: index}
-       })
-
-     }
-
-</script>
+<% content_for :js do %>
+    <%= javascript_include_tag 'custom_files/count_down' %>
+<% end%>

@@ -27,4 +27,10 @@ class UserDashboardsController < ApplicationController
 
   end
 
+  # Test time is over
+  def timeis_up
+    current_user.submit_answers
+    render text: true
+  end
+
 end
