@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     get 'reports', to: 'admin/reports#candidate_reports', as: 'candidate_report'
   end
   get 'dashboard', to: 'user_dashboards#dashboard', as: 'user_dashboard'
+  get 'start-test', to: 'user_dashboards#user_set', as: 'user_set'
 
 end

@@ -8,4 +8,8 @@ class UserDashboardsController < ApplicationController
 
   end
 
+  def user_set
+    @question_sets = current_user.user_sets.last.question_sets
+  end
+
 end
