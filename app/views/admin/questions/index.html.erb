@@ -1,0 +1,38 @@
+<section class="que-n-ans activate">
+  <h2>Question Set</h2>
+
+  <div class="question-set">
+    <div class="col-md-3 tech-drop-box">
+      <select class="form-control">
+        <option>-- Select Technology --</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="question-view" >
+      <div class="question-tabulate-view">
+        <table class="table table-striped question-scroll">
+          <thead>
+          <tr>
+            <th style="width: 10%">Sr.No.</th>
+            <th style="width: 90%">Question</th>
+          </tr>
+          </thead>
+          <tbody>
+           <% @questions.each do |que| %>
+            <tr>
+              <td style="width: 10%"> <%= que.id %> </td>
+              <td style="width: 90%"> <%= que.title %> </td>
+            </tr>
+          <% end %>
+          <%= will_paginate @questions %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
