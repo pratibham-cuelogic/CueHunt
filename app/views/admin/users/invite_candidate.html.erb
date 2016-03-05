@@ -1,0 +1,4 @@
+<%= form_tag send_invitation_to_candidate_path, class: 'form-signin' do %>
+    <%= email_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email", required: true %><br/>
+    <%= submit_tag 'Invite', class: "btn btn-lg btn-primary btn-block" %>
+<% end %>
