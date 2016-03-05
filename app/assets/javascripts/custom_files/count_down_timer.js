@@ -1,5 +1,6 @@
 
 $(function(){
+    $("#qs_0").show();
     $('#s_timer').countdowntimer({
         //minutes :25,
         seconds :5,
@@ -22,7 +23,7 @@ $(function(){
     }
 });
 
-$("#qs_0").show();
+
 function next_question(index){
     $(".questions").hide();
     $("#qs_"+index).show();
