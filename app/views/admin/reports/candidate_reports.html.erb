@@ -1,5 +1,7 @@
 <% @candidate_reports.each do |report| %>
-
-    <%= report %>
+    <%= report.user.full_name %><br/>
+    <%= report.technology.name %><br/>
+    <%= report.invitee.full_name %><br/>
+    <%= report.score %><br/>
 
 <% end %>

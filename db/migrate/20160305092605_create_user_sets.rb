@@ -7,7 +7,7 @@ class CreateUserSets < ActiveRecord::Migration
       t.datetime :start_time
       t.datetime :end_time
       t.integer :score
-
+      t.integer :status, default: 0
       t.timestamps
     end
   end

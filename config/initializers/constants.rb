@@ -8,3 +8,10 @@ NO_ACCESS = -1
 # Admin Role
 ADMIN = 'admin'
 USER = 'user'
+
+SET_CREATED = 0
+SET_ACCEPTED = 1
+SET_STARTED = 2
+SET_FINISHED = 3
+SET_CLEARED = 4
+SET_FAILED = -1
