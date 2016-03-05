@@ -18,12 +18,9 @@ ActiveRecord::Schema.define(version: 20160305094120) do
 
   create_table "answers", force: true do |t|
     t.text     "description"
-    t.integer  "technology_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "answers", ["technology_id"], name: "index_answers_on_technology_id", using: :btree
 
   create_table "question_answers", force: true do |t|
     t.integer "question_id"
