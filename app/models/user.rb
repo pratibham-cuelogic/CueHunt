@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Send invitation to candidate to join test
   def self.send_invitation(params, invitee)
-    role_id = Role.select('id').where(name: 'candidate').first.id rescue nil
+    role_id = Role.select('id').where(role_type: 'candidate').first.id rescue nil
     user = new(email: params['email'].first, full_name: params['full_name'].first, phone_no: params['phone_no'].first, password: 'cuehunt2016', password_confirmation: 'cuehunt2016',status: INVITATION_ACCEPTED, role_id: role_id)
     if user.save
       user_set = UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
