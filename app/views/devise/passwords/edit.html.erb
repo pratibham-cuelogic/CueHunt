@@ -5,7 +5,7 @@
         <header>
           <h1 class="text-center login-title ion-log-in">Reset Password</h1>
         </header>
-        <img class="profile-img" src="#" alt="">
+        <h1 class="text-center"> <img src="/assets/logo.png" width="60%"> </h1>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-signin' }) do |f| %>
             <%= devise_error_messages! %>
             <%= f.hidden_field :reset_password_token %>

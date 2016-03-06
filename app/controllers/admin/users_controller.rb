@@ -2,15 +2,12 @@ class Admin::UsersController < BaseAdminController
 
   # Send invitation to user
   def send_invitation_to_candidate
-    User.send_invitation(params, current_user)
-    redirect_to :back
-  end
-
-  # Resend invitation for online test
-  def resend_invitation
-    user = User.where(email: params[:email]).last
-    return redirect_to :back if user.blank?
-    User.resend_invitation_to_user(user, current_user)
+    if params[:user_type] == 'new'
+      User.send_invitation(params, current_user)
+    else
+      user = User.where(email: params[:email]).last
+      User.resend_invitation_to_user(user, current_user, params) if user.present?
+    end
     redirect_to :back
   end
 
@@ -20,6 +17,13 @@ class Admin::UsersController < BaseAdminController
 
   def candidates
     @candidates = User.of_type("candidate")
+  end
+
+  def check_user
+    if params[:user_type] == 'exist'
+      @emails = User.of_type("candidate").collect(&:email)
+    end
+    render partial: 'admin/reports/email_field'
   end
 
 end

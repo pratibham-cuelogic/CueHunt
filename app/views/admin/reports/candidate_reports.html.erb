@@ -65,31 +65,7 @@
           <label>Technology :</label>
           <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}, selected: params[:technology_id]), include_blank: true, class: "form-control" %>
         </div>
-
-        <div class="from-date filter-block">
-          <label>From :</label>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type="text" id="datepicker1" class="form-control" />
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="to-date filter-block">
-          <label>To :</label>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type="text" id="datepicker2" class="form-control" />
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block existing-candidate filter-block-search" type="submit">Filter</button>
+          <button class="btn btn-lg btn-primary btn-block existing-candidate filter-block-search" type="submit">Filter</button>
       <% end %>
     </div>
   </div>

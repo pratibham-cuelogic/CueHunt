@@ -47,15 +47,13 @@ class User < ActiveRecord::Base
   end
 
   # Resend invitation
-  def self.resend_invitation_to_user(user, invitee)
-    old_set = UserSet.where(user_id: user.id).last
-    return false if old_set.blank?
-    user_set = UserSet.create_user_set(old_set.technology_id ,user.id, invitee.id)
+  def self.resend_invitation_to_user(user, invitee, params)
+    user_set = UserSet.create_user_set(params[:technology_id] ,user.id, invitee.id)
     if user_set.present?
-      question_ids = Question.order("RANDOM()").where(technology_id: old_set.technology_id).limit(10).collect(&:id)
+      question_ids = Question.order("RANDOM()").where(technology_id: params[:technology_id]).limit(10).collect(&:id)
       QuestionSet.create_set(question_ids, user_set.id)
     end
-    user.update_attributes(status: ACTIVE)
+    user.update_attributes(status: INVITED)
     AdminNotifier.resend_invitation_email(user).deliver
   end
 

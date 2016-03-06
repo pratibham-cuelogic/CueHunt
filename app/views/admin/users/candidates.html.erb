@@ -30,62 +30,38 @@
 
     <!-- Right Panel -->
     <div class="col-md-4 right-panel">
-
-      <!--<button class="btn btn-lg btn-primary btn-block existing-candidate" type="submit">Existing Candidate</button>-->
-      <!--<div class="input-group exiting-email-input display-none">-->
-        <!--<input type="text" class="form-control existing-user" placeholder="Email" required autofocus>-->
-        <!--<a href="#" class="input-group-addon glyphicon glyphicon-log-in"></a>-->
-      <!--</div>-->
-      <!--<button class="btn btn-lg btn-primary new-user btn-block" type="submit">New Candidate Registration</button>-->
-
-
-      <button class="btn btn-lg btn-primary btn-block existing-candidate" id="exiti" type="submit">Existing Candidate</button>
-      <div class="input-group exiting-email-input display-none">
-        <%= form_tag resend_invitation_path, class: 'form-signin' do %>
-          <%= text_field 'email',nil, autofocus: true, class: "form-control existing-user", placeholder: "Email ", required: true %>
-          <button  class="input-group-addon glyphicon glyphicon-log-in" type="submit"></>
-        <% end %>
-      </div>
-      <button class="btn btn-lg btn-primary new-user btn-block" type="submit">New Candidate Registration</button>
-
-      <div class="new-candidate-registration display-none">
+      <div class="new-candidate-registration">
         <h2>Sending Invite</h2>
         <%= form_tag send_invitation_to_candidate_path, class: 'form-signin' do %>
-            <!--<div class="form-group">-->
-              <%= email_field 'email',nil, autofocus: true, class: "form-control", placeholder: "Email", required: true %>
-            <!--</div>-->
-            <!--<div class="form-group">-->
+              <%= radio_button_tag 'user_type','new', true, {style: 'margin-left: 1px !important',onclick: "check_user('new')"} %>
+              New Candidate
+              <%= radio_button_tag 'user_type', 'exist', false, {style: 'margin-left: 1px',onclick: "check_user('exist')"} %>
+              Existing Candidate<br/><br/>
+              <div id="email_field">
+                <%= render 'admin/reports/email_field' %>
+              </div>
               <%= text_field 'full_name',nil, autofocus: true, class: "form-control", placeholder: "Name", required: true %>
-            <!--</div>-->
-            <!--<div class="form-group">-->
               <%= text_field 'phone_no',nil, autofocus: true, class: "form-control", placeholder: "Contact Number", required: true %>
-            <!--</div>-->
-            <!--<div class="form-group">-->
               <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}), class: "form-control" %>
-            <!--</div>-->
-            <%= button_tag 'Back', class: "btn btn-lg back-invite btn-primary btn-block"%>
-            <%= submit_tag 'Invite', class: "btn btn-lg send-invite btn-primary btn-block" %>
+            <%= submit_tag 'Invite', class: "btn btn-lg send-invite btn-primary", style: 'margin-left: 90px !important' %>
         <% end %>
-        <!--<h2>Candidate List</h2>-->
-        <!--<div class="form-group">-->
-          <!--<input type="email" class="form-control" id="input_email" placeholder="Email">-->
-        <!--</div>-->
-        <!--<div class="form-group">-->
-          <!--<input type="text" class="form-control" id="input_username" placeholder="Username">-->
-        <!--</div>-->
-        <!--<div class="form-group">-->
-          <!--<input type="text" class="form-control" id="input_contact" placeholder="Contact">-->
-        <!--</div>-->
-        <!--<select class="form-control">-->
-          <!--<option>1</option>-->
-          <!--<option>2</option>-->
-          <!--<option>3</option>-->
-          <!--<option>4</option>-->
-          <!--<option>5</option>-->
-        <!--</select>-->
-        <!--<button class="btn btn-lg btn-primary send-invite btn-block" type="submit">Send Invitation</button>-->
       </div>
     </div>
   </div>
-  </div>
 </section>
+
+<script>
+  function check_user(type){
+      $.ajax({
+          url: '/admin/check-user',
+          method: 'POST',
+          beforeSend: function (xhr) {
+              xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+          },
+          data: {user_type: type},
+          success :function(data){
+            $("#email_field").html(data)
+          }
+      })
+  }
+</script>
