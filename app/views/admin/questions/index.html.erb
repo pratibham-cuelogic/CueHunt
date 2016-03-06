@@ -3,7 +3,7 @@
 
   <div class="question-set">
     <div class="col-md-3 tech-drop-box">
-      <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}, selected: params[:tech_id]), :onchange => 'filter_questions(this)', include_blank: true, class: "form-control" %>
+      <%= select_tag 'technology_id',options_for_select(Technology.all.map {|t| [t.name, t.id]}.unshift(["All Technologies", '']), selected: params[:tech_id]), :onchange => 'filter_questions(this)',  class: "form-control" %>
     </div>
     <div class="question-view" >
       <div class="question-tabulate-view">
