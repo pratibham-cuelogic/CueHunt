@@ -17,6 +17,7 @@ class Admin::UsersController < BaseAdminController
 
   def candidates
     @candidates = User.of_type("candidate")
+    @online_user_ids = User.online_users.collect(&:email)
   end
 
   def check_user

@@ -17,8 +17,8 @@
           <tbody>
            <% @questions.each do |que| %>
             <tr>
-              <td style="width: 10%"> <%= que.id %> </td>
-              <td style="width: 90%"> <%= que.title %> </td>
+              <td> <%= que.id %> </td>
+              <td> <%= que.title %> </td>
             </tr>
           <% end %>
           <%= will_paginate @questions %>
@@ -28,6 +28,7 @@
     </div>
 
   </div>
+
 </section>
 
 <script type="text/javascript">

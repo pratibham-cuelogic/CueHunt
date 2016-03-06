@@ -86,8 +86,8 @@ $(document).ready(function(){
 
 view_start_analytics('linearGradient');
 
-    $('#datepicker1').datepicker();
-    $('#datepicker2').datepicker();
+    //$('#datepicker1').datepicker();
+    //$('#datepicker2').datepicker();
 
     $('#accordion').on('hidden.bs.collapse', toggleChevron);
     $('#accordion').on('shown.bs.collapse', toggleChevron);
