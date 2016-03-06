@@ -18,7 +18,8 @@
 .colorDefinition {
     background: #000000;
     color : #FFFFFF;
-    border-color: #F0068E;
+    /*border-color: #F0068E;*/
+    padding: 10px;
 }
 
 .size_xl {
