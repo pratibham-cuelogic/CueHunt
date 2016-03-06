@@ -80,7 +80,8 @@ header{
 	padding: 2% 2%;
     background: #fff;
     margin: 2% 2%;	
-    min-height: 488px;
+    min-height: 446px;
+    text-align: center;
 }
 .question-status{
 	padding: 10% 0;
