@@ -6,7 +6,7 @@
       <div class="panel-group" id="accordion">
 
         <% if @candidate_reports.size > 0 %>
-          <% @candidate_reports.each do |report| %>
+          <% @candidate_reports.each_with_index do |report,index| %>
             <div class="panel panel-default">
               <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne_<%=report.id%>">
                 <h4 class="panel-title">
@@ -15,7 +15,7 @@
                   </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
                 </h4>
               </div>
-              <div id="collapseOne_<%=report.id%>" class="panel-collapse collapse">
+              <div id="collapseOne_<%=report.id%>" class="panel-collapse collapse <%= index ==0 ? 'in' : '' %>">
                 <div class="panel-body">
                   <div class="email report-panel-value">
                     <label>Candidate Email:</label>

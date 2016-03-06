@@ -363,7 +363,7 @@ footer{
     font-size: 13px;
     margin-top: 21px;
     position: relative;
-    /*border:-15px;*/
+    bottom:-9px;
 }
 footer .copyright{
      text-decoration: none;

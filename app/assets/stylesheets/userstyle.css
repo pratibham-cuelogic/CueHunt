@@ -160,8 +160,8 @@ footer{
     color: #1e88e5;
     font-size: 13px;
     margin-top: 21px;
-     position: relative;
-    bottom: -4px;
+    position: relative;
+    bottom:-9px;
 }
 footer .copyright{
      text-decoration: none;
