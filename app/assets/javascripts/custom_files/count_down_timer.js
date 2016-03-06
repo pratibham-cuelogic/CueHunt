@@ -2,8 +2,8 @@
 $(function(){
     $("#qs_0").show();
     $('#s_timer').countdowntimer({
-        //minutes :25,
-        seconds :5,
+        minutes :2,
+        //seconds :5,
         size : "lg",
         timeUp : timeisUp
     });
